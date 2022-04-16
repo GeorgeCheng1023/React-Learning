@@ -13,11 +13,8 @@ const ExpenseItem = (props) => {
     <Card className="expense-item">
       <ExpenseDate date={props.date} />
       <div className="expense-item__description">
-        <h2>{name}</h2>
-        <div className="expense-item__price">
-          {String.fromCharCode(36)}
-          {props.price}
-        </div>
+        <h2>{props.name}</h2>
+        <div className="expense-item__price">{props.amount}'s</div>
       </div>
       <button onClick={clickHandler} className="edit">
         Edit
