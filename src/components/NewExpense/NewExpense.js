@@ -10,9 +10,15 @@ const NewExpense = (props) => {
     props.onAddNewExpense(saveExpense);
     return saveExpense;
   };
+  const cancelHandler = () => {
+    props.onHideNewExpense(false);
+  };
   return (
     <div className="new-expense">
-      <ExpenseForm onSaveExpense={saveExpenseHandler} />
+      <ExpenseForm
+        onSaveExpense={saveExpenseHandler}
+        onHideNewExpense={cancelHandler}
+      />
     </div>
   );
 };

@@ -6,6 +6,11 @@ const ExpenseForm = (props) => {
     enteredAmount: "",
     enteredDate: "",
   });
+
+  const cancelHandler = () => {
+    props.onHideNewExpense(false);
+  };
+
   const nameChangeHandler = (event) => {
     setUserInput((prevState) => {
       return {
@@ -41,7 +46,7 @@ const ExpenseForm = (props) => {
     props.onSaveExpense(expenseData);
     setUserInput((prevState) => {
       return {
-        enteredName: "",
+        menteredName: "",
         enteredAmount: "",
         enteredDate: "",
       };
@@ -79,6 +84,11 @@ const ExpenseForm = (props) => {
             onChange={dateChangeHandler}
           />
         </div>
+      </div>
+      <div className="new-expense__actions">
+        <button onClick={cancelHandler} type="button">
+          Cancel
+        </button>
       </div>
       <div className="new-expense__actions">
         <button type="submit">Add Expense</button>

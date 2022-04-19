@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./App.css";
 import Expenses from "./components/Expenses/Expenses";
 import NewExpense from "./components/NewExpense/NewExpense";
+import AddExpenseButton from "./components/NewExpense/AddExpenseButton";
 
 const DATA = [
   {
@@ -36,9 +37,28 @@ function App() {
       return [saveExpense, ...prevExpense];
     });
   };
+
+  const [displayNewExpense, setDisplayNewExpense] = useState(false);
+  const displayNewExpenseHandeler = (bol) => {
+    console.log(bol);
+    setDisplayNewExpense(bol);
+  };
+
+  const showNewExpenseCondition = () => {
+    if (displayNewExpense) {
+      return (
+        <NewExpense
+          onAddNewExpense={addNewExpenseHandler}
+          onHideNewExpense={displayNewExpenseHandeler}
+        />
+      );
+    } else {
+      return <AddExpenseButton onShowNewExpense={displayNewExpenseHandeler} />;
+    }
+  };
   return (
     <div>
-      <NewExpense onAddNewExpense={addNewExpenseHandler} />
+      {showNewExpenseCondition()}
       <Expenses expenses={expenses} />
     </div>
   );
