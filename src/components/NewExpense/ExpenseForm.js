@@ -7,17 +7,12 @@ const ExpenseForm = (props) => {
     enteredDate: "",
   });
   const nameChangeHandler = (event) => {
-    // setUserInput({
-    //   ...userInput,
-    //   enteredName: event.target.value,
-    // });
     setUserInput((prevState) => {
       return {
         ...prevState,
         enteredName: event.target.value,
       };
     });
-    // console.log(userInput);
   };
   const amountChangeHandler = (event) => {
     setUserInput((prevState) => {
@@ -26,7 +21,6 @@ const ExpenseForm = (props) => {
         enteredAmount: event.target.value,
       };
     });
-    // console.log(userInput);
   };
   const dateChangeHandler = (event) => {
     setUserInput((prevState) => {
@@ -35,18 +29,15 @@ const ExpenseForm = (props) => {
         enteredDate: event.target.value,
       };
     });
-    // console.log(userInput);
   };
 
   const submitHandler = (event) => {
     event.preventDefault();
-
     const expenseData = {
       name: userInput.enteredName,
       amount: userInput.enteredAmount,
       date: new Date(userInput.enteredDate),
     };
-    console.log(expenseData);
     props.onSaveExpense(expenseData);
     setUserInput((prevState) => {
       return {
