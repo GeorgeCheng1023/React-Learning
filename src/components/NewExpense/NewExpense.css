@@ -18,6 +18,8 @@
   color: white;
   border-radius: 12px;
   margin-right: 1rem;
+  margin-top: 1rem;
+  display: inline-block;
 }
 
 .new-expense button:hover,

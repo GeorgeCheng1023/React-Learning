@@ -40,7 +40,7 @@ function App() {
 
   const [displayNewExpense, setDisplayNewExpense] = useState(false);
   const displayNewExpenseHandeler = (bol) => {
-    console.log(bol);
+    // console.log(bol);
     setDisplayNewExpense(bol);
   };
 
