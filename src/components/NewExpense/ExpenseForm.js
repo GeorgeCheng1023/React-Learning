@@ -8,7 +8,7 @@ const ExpenseForm = (props) => {
   });
 
   const cancelHandler = () => {
-    props.onHideNewExpense(false);
+    props.onCancel();
   };
 
   const nameChangeHandler = (event) => {
